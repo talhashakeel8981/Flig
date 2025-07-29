@@ -54,7 +54,14 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -337,10 +344,27 @@ fun FlightSearch()
 
         ) {
 
-Column (
-    
-){  }
+            Row {
+                Image(
+                    
+                    painter = painterResource(id = R.drawable.qatar),
+                    contentDescription = "",
+                    modifier = Modifier.size(100.dp)
+                )
+                Text(
+                    text = buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black)) {
+                            append("Qatar Airways")
+                        }
+                        append("\n")
+                        withStyle(style = SpanStyle(fontSize = 14.sp, fontWeight = FontWeight.Normal, color = Color.Gray)) {
+                            append("30 July 2025")
+                        }
+                    }
+                )
+            }
+            }
         }
 
     }
-}
+

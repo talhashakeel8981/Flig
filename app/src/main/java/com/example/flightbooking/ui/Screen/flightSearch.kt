@@ -329,41 +329,6 @@ fun FlightSearch()
             )
         }
 
-        Card(
-            modifier = Modifier
-                .padding(top = 580.dp)
-                .padding(start = 15.dp, end = 15.dp)
-                .fillMaxWidth()
-                .height(250.dp),
-                    shape = RoundedCornerShape(25.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFFDFFFF) // Light white-blue
-                // or simply Color.White
-            ),
-            elevation = CardDefaults.cardElevation(50.dp)
-
-        ) {
-
-            Row {
-                Image(
-                    
-                    painter = painterResource(id = R.drawable.qatar),
-                    contentDescription = "",
-                    modifier = Modifier.size(100.dp)
-                )
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black)) {
-                            append("Qatar Airways")
-                        }
-                        append("\n")
-                        withStyle(style = SpanStyle(fontSize = 14.sp, fontWeight = FontWeight.Normal, color = Color.Gray)) {
-                            append("30 July 2025")
-                        }
-                    }
-                )
-            }
-            }
         }
 
     }

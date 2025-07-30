@@ -1,6 +1,7 @@
 package com.example.flightbooking.ui.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -8,18 +9,23 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.flightbooking.R
@@ -31,10 +37,10 @@ fun airLineCard()
 
     Card(
         modifier = Modifier
-            .padding(top = 580.dp)
-            .padding(start = 15.dp, end = 15.dp)
+            .padding(top = 540.dp)
+            .padding(12.dp)
             .fillMaxWidth()
-            .height(250.dp),
+            .height(210.dp),
         shape = RoundedCornerShape(25.dp),
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFFFDFFFF) // Light white-blue
@@ -44,36 +50,12 @@ fun airLineCard()
 
     ) {
 
-//        Row {
-//            Image(
-//
-//                painter = painterResource(id = R.drawable.qatar),
-//                contentDescription = "",
-//                modifier = Modifier.size(100.dp)
-//            )
-//            Text(
-//                text = buildAnnotatedString {
-//                    withStyle(style = SpanStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold, color = Color.Black)) {
-//                        append("Qatar Airways")
-//                    }
-//                    append("\n")
-//                    withStyle(style = SpanStyle(fontSize = 14.sp, fontWeight = FontWeight.Normal, color = Color.Gray)) {
-//                        append("30 July 2025")
-//                    }
-//                }
-//            )
-//        }
 
         Column(
 
 
         ) {
-            //header
 
-
-            //divider
-            //flight info
-            
             header()
             divider_flight()
             flightInfo()
@@ -95,15 +77,22 @@ private  fun header()
                 modifier = Modifier.size(100.dp)
             )
         Column (
-
+            modifier = Modifier
+                .padding(top = 30.dp)
         ){
 
             Text(
-                text = "Qatar Airways"
-            )
+                text = "Qatar Airways",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold
 
+            )
+Spacer(modifier = Modifier
+    .height(5.dp))
             Text(
-                text = "30 July 2025"
+                text = "30 November 2025",
+                fontSize = 15.sp,
+                color = Color(red = 175, green = 177, blue = 178)
             )
 
         }
@@ -123,39 +112,84 @@ private fun divider_flight() {
 }
 
 @Composable
-fun flightInfo(modifier: Modifier = Modifier) {
+fun flightInfo() {
     Row (){
         //flight info (text)
         flightInfoText()
         //Image
         //flight info (text)
-        flightInfoText()
+//        flightInfoText()
 
     }
 }
 
 @Composable
 fun flightInfoText() {
-    Column (
+    Row( // 👈 wrapped all columns inside a Row
         modifier = Modifier
-            .padding(start = 5.dp, top = 5.dp)
-    ){
-        Text(
-            text = "LON"
-        )
-        Spacer(modifier = Modifier
-            .height(5.dp))
-        Text(
-            text = "London,GB"
-        )
-        Spacer(modifier = Modifier
-            .height(5.dp))
+            .padding(16.dp)
+            .fillMaxWidth(), // 👈 make row take full width
+        horizontalArrangement = Arrangement.SpaceEvenly, // 👈 equal spacing between columns
+        verticalAlignment = Alignment.CenterVertically // 👈 vertically center the icon with text
+    ) {
+        // Departure Column
+        Column(
+            modifier = Modifier
+                .padding(start = 5.dp, top = 5.dp)
+        ) {
+            Text(
+                text = "LON",
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = "London,GB",
+                color = Color(red = 175, green = 177, blue = 178)
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = "08:00 AM",
+                color = Color(red = 175, green = 177, blue = 178)
+            )
+        }
 
-        Text(
-            text = "08:00 AM"
-        )
+        // Plane Icon Column
+        Column {
+            Icon(
+                painter = painterResource(id = R.drawable.plane),
+                contentDescription = "",
+                modifier = Modifier.size(30.dp),
+                tint = Color.Black
 
+            )
+        }
+
+        // Arrival Column
+        Column {
+            Text(
+                text = "POR",
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = "Lisbon,Portugal",
+                color = Color(red = 175, green = 177, blue = 178)
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(
+                text = "12:00 AM",
+                color = Color(red = 175, green = 177, blue = 178)
+            )
+        }
     }
 }
 
-@Composable pre
+@Preview
+@Composable
+fun airline()
+{
+    airLineCard()
+
+}

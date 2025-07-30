@@ -62,6 +62,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -91,13 +92,13 @@ fun FlightSearch()
 
                 text = "Where You\nwant to Travel?",
                 color = Color(red = 216, green = 236, blue = 235),
-                fontSize = 38.sp,
+                fontSize = 33.sp,
 
 
                 )
             Box(
                 modifier = Modifier
-                    .padding(start = 60.dp, top = 60.dp, end = 8.dp)
+                    .padding(start = 95.dp, top = 60.dp, end = 8.dp)
                     .size(50.dp)                      // Bigger circle size
                     .clip(CircleShape)
                     .background(Color(2, 63, 49)),   // Background color for circle
@@ -117,7 +118,7 @@ fun FlightSearch()
         Card(
 
             modifier = Modifier
-                .padding(top = 200.dp)
+                .padding(top = 150.dp)
                 .padding(start = 15.dp, end = 15.dp)
                 .fillMaxWidth()
                 .height(325.dp)
@@ -312,7 +313,7 @@ fun FlightSearch()
 
 
             modifier = Modifier
-                .padding(start = 12.dp, end = 12.dp, top = 540.dp)
+                .padding(start = 12.dp, end = 12.dp, top = 500.dp)
                 .fillMaxWidth() // Important: makes the row expand full width
         ) {
             Text(
@@ -333,3 +334,10 @@ fun FlightSearch()
 
     }
 
+
+@Preview
+@Composable
+fun prevFlightScreen()
+{
+    FlightSearch()
+}

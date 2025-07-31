@@ -90,9 +90,9 @@ fun FlightSearch()
                 modifier = Modifier
                     .padding(start = 10.dp, top = 40.dp),
 
-                text = "Where You\nwant to Travel?",
+                text = "Where you\nwant to Travel?",
                 color = Color(red = 216, green = 236, blue = 235),
-                fontSize = 33.sp,
+                fontSize = 30.sp,
 
 
                 )
@@ -340,4 +340,5 @@ fun FlightSearch()
 fun prevFlightScreen()
 {
     FlightSearch()
+//    airLineCard(flightInfo())
 }

@@ -11,8 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.flightbooking.ui.Screen.FlightListLazyRow
 import com.example.flightbooking.ui.Screen.FlightSearch
 import com.example.flightbooking.ui.Screen.airLineCard
+import com.example.flightbooking.ui.Screen.flightInfo
 import com.example.flightbooking.ui.theme.FlightBookingTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,9 +22,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+//            FlightSearch()
+//            airLineCard(flight = airLineCard(flightInfoText()) )
             FlightSearch()
-            airLineCard()
-            }
+            FlightListLazyRow()
+        }
         }
     }
 
